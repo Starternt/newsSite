@@ -18,20 +18,20 @@ class Router
     public function run()
     {
         $uri = $this->getURI();
-//        echo $uri;
+
         foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $uri)) {
-                $intertalPath = preg_replace("~$uriPattern~", $path, $uri);
-                $segments = explode("/", $intertalPath);
-//                print_r($segments);
+                $internalPath = preg_replace("~$uriPattern~", $path, $uri);
+                $segments = explode("/", $internalPath);
+
                 $controllerName = array_shift($segments);
                 $controllerName = ucfirst($controllerName)."Controller";
-//                echo $controllerName;
+
                 $actionName = array_shift($segments);
                 $actionName = "action".ucfirst($actionName);
-//                echo $actionName;
+
                 $controllerFile = ROOT.'/controllers/'.$controllerName.".php";
-                echo $controllerFile;
+
                 if(file_exists($controllerFile)){
                     include_once($controllerFile);
                 }
