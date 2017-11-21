@@ -39,7 +39,8 @@
                 <div class="categories">РАЗДЕЛЫ</div>
                 <?php $active = 1; ?>
                 <?php foreach ($categoryList as $category): ?>
-                    <a href="<?php if($category['id'] != 1) echo '/category/'.$category['id']; ?>" class="list-group-item <?php if($active == 1 && $category['id'] == 1) echo "active"; ?>">
+                    <a href="<?php if($category['id'] != 1) echo '/category/'.$category['id']; else echo '/';?>"
+                       class="list-group-item <?php if($active == 1 && $category['id'] == 1) echo "active"; ?>">
                         <?php echo $category['name']; ?>
                     </a>
                 <?php endforeach; ?>
@@ -90,9 +91,9 @@
 
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/template/js/jquery.js"></script>
-    <script src="/template/js/bootstrap.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/template/js/jquery.js"></script>
+<script src="/template/js/bootstrap.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
 </body>
 </html>
