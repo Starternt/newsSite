@@ -57,133 +57,32 @@
     </div>
 </div>
 
-<div class="container-fluid  ">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-8 news-item item-container">
-            <img src="/upload/img/1.jpeg" alt="" width="160px" class="item-image">
-            <b><h4 class="news-title">НАТО навсегда: готовится ли Запад к войне с РФ в Европе</h4></b>
-            <span>Размещенные в Восточной Европе и Прибалтике войска НАТО не намерены покидать этот регион и будут оставаться там столько, сколько это будет нужно. Так ответил на вопрос журналиста в эфире канадской радиостанции...</span>
-
-            <div class="end-of-item">
-                <span class="news-theme">Новости по теме:</span>
-                <span><a href="#" class="added">Добавлено: 2017-20-11</a></span><br>
-                <div class="tag-fullreview-container">
-                    <button class="btn btn-default tag-item">Политика</button>
-                    <button class="btn-link full-review">Полный обзор -></button>
+<?php foreach ($newsList as $news): ?>
+    <div class="container-fluid  ">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8 news-item item-container">
+                <img src="/upload/img/1.jpeg" alt="" width="160px" class="item-image">
+                <div class="container-fluid">
+                    <b><h4 class="news-title"><?php echo $news['title']; ?></h4></b>
+                    <span><?php echo $news['short_description']; ?></span>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-</div>
-
-<div class="container-fluid  ">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-8 news-item item-container">
-            <img src="/upload/img/1.jpeg" alt="" width="160px" class="item-image">
-            <b><h4 class="news-title">НАТО навсегда: готовится ли Запад к войне с РФ в Европе</h4></b>
-            <span>Размещенные в Восточной Европе и Прибалтике войска НАТО не намерены покидать этот регион и будут оставаться там столько, сколько это будет нужно. Так ответил на вопрос журналиста в эфире канадской радиостанции...</span>
-
-            <div class="end-of-item">
-                <span class="news-theme">Новости по теме:</span>
-                <span><a href="#" class="added">Добавлено: 2017-20-11</a></span><br>
-                <div class="tag-fullreview-container">
-                    <button class="btn btn-default tag-item">Политика</button>
-                    <button class="btn-link full-review">Полный обзор -></button>
+                <div class="end-of-item">
+                    <span class="news-theme">Новости по теме:</span>
+                    <span><a href="#" class="added">Добавлено: <?php echo $news['add_date']; ?></a></span><br>
+                    <div class="tag-fullreview-container">
+                        <a href="<?php echo '/category/'.$news['category_id'];?>"><button class="btn btn-default tag-item"><?php echo $categoryForNews[$news['id']]['name'];?></button></a>
+                        <a href="<?php echo '/news/'.$news['id']; ?>"><button class="btn-link full-review">Полный обзор -></button></a>
+                    </div>
                 </div>
+
             </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
     </div>
-</div>
+<?php endforeach; ?>
 
-<div class="container-fluid  ">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-8 news-item item-container">
-            <img src="/upload/img/1.jpeg" alt="" width="160px" class="item-image">
-            <b><h4 class="news-title">НАТО навсегда: готовится ли Запад к войне с РФ в Европе</h4></b>
-            <span>Размещенные в Восточной Европе и Прибалтике войска НАТО не намерены покидать этот регион и будут оставаться там столько, сколько это будет нужно. Так ответил на вопрос журналиста в эфире канадской радиостанции...</span>
-
-            <div class="end-of-item">
-                <span class="news-theme">Новости по теме:</span>
-                <span><a href="#" class="added">Добавлено: 2017-20-11</a></span><br>
-                <div class="tag-fullreview-container">
-                    <button class="btn btn-default tag-item">Политика</button>
-                    <button class="btn-link full-review">Полный обзор -></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-</div>
-
-<div class="container-fluid  ">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-8 news-item item-container">
-            <img src="/upload/img/1.jpeg" alt="" width="160px" class="item-image">
-            <b><h4 class="news-title">НАТО навсегда: готовится ли Запад к войне с РФ в Европе</h4></b>
-            <span>Размещенные в Восточной Европе и Прибалтике войска НАТО не намерены покидать этот регион и будут оставаться там столько, сколько это будет нужно. Так ответил на вопрос журналиста в эфире канадской радиостанции...</span>
-
-            <div class="end-of-item">
-                <span class="news-theme">Новости по теме:</span>
-                <span><a href="#" class="added">Добавлено: 2017-20-11</a></span><br>
-                <div class="tag-fullreview-container">
-                    <button class="btn btn-default tag-item">Политика</button>
-                    <button class="btn-link full-review">Полный обзор -></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-</div>
-
-<div class="container-fluid  ">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-8 news-item item-container">
-            <img src="/upload/img/1.jpeg" alt="" width="160px" class="item-image">
-            <b><h4 class="news-title">НАТО навсегда: готовится ли Запад к войне с РФ в Европе</h4></b>
-            <span>Размещенные в Восточной Европе и Прибалтике войска НАТО не намерены покидать этот регион и будут оставаться там столько, сколько это будет нужно. Так ответил на вопрос журналиста в эфире канадской радиостанции...</span>
-
-            <div class="end-of-item">
-                <span class="news-theme">Новости по теме:</span>
-                <span><a href="#" class="added">Добавлено: 2017-20-11</a></span><br>
-                <div class="tag-fullreview-container">
-                    <button class="btn btn-default tag-item">Политика</button>
-                    <button class="btn-link full-review">Полный обзор -></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-</div>
-
-<div class="container-fluid ">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-8 news-item item-container">
-            <img src="/upload/img/1.jpeg" alt="" width="160px" class="item-image">
-            <b><h4 class="news-title">НАТО навсегда: готовится ли Запад к войне с РФ в Европе</h4></b>
-            <span>Размещенные в Восточной Европе и Прибалтике войска НАТО не намерены покидать этот регион и будут оставаться там столько, сколько это будет нужно. Так ответил на вопрос журналиста в эфире канадской радиостанции...</span>
-
-            <div class="end-of-item">
-                <span class="news-theme">Новости по теме:</span>
-                <span><a href="#" class="added">Добавлено: 2017-20-11</a></span><br>
-                <div class="tag-fullreview-container">
-                    <button class="btn btn-default tag-item">Политика</button>
-                    <button class="btn-link full-review">Полный обзор -></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-</div>
-
-
+<?php echo $pagination->get(); ?>
 
 
 

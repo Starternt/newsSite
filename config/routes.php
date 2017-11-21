@@ -6,5 +6,7 @@ return array(
 
     'catalog/view/([0-9]+])' => 'catalog/view/$1',
     'catalog' => 'catalog/index', //actionIndex in CatalogController
+
+    'page-([0-9]+)' => 'site/index/$1',
     '' => 'site/index'
 );
