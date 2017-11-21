@@ -31,23 +31,37 @@
     </div>
 </nav><br><br><br>
 
-<!--Categories-->
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 left">
             <div class="list-group">
                 <div class="categories">РАЗДЕЛЫ</div>
-                <?php $active = 1; ?>
-                <?php foreach ($categoryList as $category): ?>
-                    <a href="<?php if($category['id'] != 1) echo '/category/'.$category['id']; ?>" class="list-group-item <?php if($active == 1 && $category['id'] == 1) echo "active"; ?>">
-                        <?php echo $category['name']; ?>
-                    </a>
-                <?php endforeach; ?>
+                <a href="#" class="list-group-item active">
+                    Главные новости
+                </a>
+                <a href="#" class="list-group-item">
+                    В России
+                </a>
+                <a href="#" class="list-group-item">
+                    В мире
+                </a>
+                <a href="#" class="list-group-item">
+                    Спорт и здоровье
+                </a>
+                <a href="#" class="list-group-item">
+                    Наука и техника
+                </a>
+                <a href="#" class="list-group-item">
+                    Космос
+                </a>
+                <a href="#" class="list-group-item">
+                    Бизнес
+                </a>
             </div>
         </div>
     </div>
 </div>
-
 
 <div class="container-fluid">
     <div class="row">
@@ -187,9 +201,9 @@
 
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/template/js/jquery.js"></script>
-    <script src="/template/js/bootstrap.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/template/js/jquery.js"></script>
+<script src="/template/js/bootstrap.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
 </body>
 </html>
