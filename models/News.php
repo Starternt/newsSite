@@ -29,8 +29,24 @@ class News
         return $newsList;
     }
 
+    public static function getNewsItem($id){
+        $db = Db::getConnection();
+        $sql = "SELECT `id`, `title`, `category_id`, `description`, `add_date` FROM `news`
+                WHERE `status` = 1 AND `id` = :id";
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id);
+        $result->execute();
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $row = $result->fetch();
+        return $row;
+    }
+
     public static function getCategoryForNews($arrayIds)
     {
+        if($arrayIds == false){
+            return false;
+        }
         $db = Db::getConnection();
 //        $ids = implode(",", $arrayIds);
         $ids = str_repeat('?,', count($arrayIds) - 1) . '?';
@@ -43,11 +59,23 @@ class News
         $result->execute($arrayIds);
         $i = 3;
         $listIds = array();
-        while($row = $result->fetch()){
+        while ($row = $result->fetch()) {
             $listIds[$row['id']]['name'] = $row['name'];
             $i++;
         }
         return $listIds;
+    }
+
+    public static function getCategoryForNewsItem($id){
+        $db = Db::getConnection();
+        $sql = "SELECT category.name, news.id FROM category LEFT JOIN news ON category.id = news.category_id WHERE news.id = :id";
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id);
+        $result->execute();
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $row = $result->fetch();
+        return $row['name'];
     }
 //SELECT category.name FROM category LEFT JOIN news ON category.id = news.category_id WHERE news.id IN (4, 6, 7);
 
@@ -99,6 +127,20 @@ class News
             $i++;
         }
         return $newsList;
+    }
+
+    public static function getImageForNewsItem($id){
+        $path = '/upload/img/'.$id.'.jpg';
+        return $path;
+    }
+    public static function getImagesForNews($ids){
+        $FirstPart = '/upload/img/';
+        $expansion = '.jpg';
+        $paths = array();
+        foreach($ids as $id){
+            $paths[$id]['path'] = $FirstPart.$id.$expansion;
+        }
+        return $paths;
     }
 
 

@@ -10,6 +10,7 @@ class SiteController{
             $i++;
         }
         $categoryForNews = News::getCategoryForNews($idsArray);
+        $pathsToImages = News::getImagesForNews($idsArray);
 
         $total = News::getTotalNewsMainPage();
         $pagination = new Pagination($total, $page, News::SHOW_BY_DEFAULT, 'page-');

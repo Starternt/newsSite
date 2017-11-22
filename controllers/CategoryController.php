@@ -5,13 +5,14 @@ class CategoryController{
     public function actionIndex($category, $page = 1){
         $categoryList = Category::getCategoryList();
         $newsList = News::getNewsByCategory($category, $page);
-
+        $categoryId = $category;
         $i = 0;
         $idsArray = array();
         foreach($newsList as $news){
             $idsArray[$i] = $news['id'];
             $i++;
         }
+        $pathsToImages = News::getImagesForNews($idsArray);
         $categoryForNews = News::getCategoryForNews($idsArray);
 
         $total = News::getTotalNewsByCategory($category);
