@@ -1,5 +1,5 @@
 <?php include_once ROOT.'/views/layouts/header.php'?>
-<body>
+    <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="row">
