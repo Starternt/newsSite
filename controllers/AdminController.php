@@ -1,28 +1,38 @@
 <?php
 
-class AdminController{
+class AdminController
+{
 
-    public function actionLogin(){
-        if(User::isAdmin()){
+    public function actionLogin()
+    {
+        if (User::isAdmin()) {
             header('location: /admin/cabinet');
         }
         $email = false;
         $password = false;
         $checkResult = false;
-        if(isset($_POST['submit'])){
+        $errors = false;
+        if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $checkResult = User::checkLoginEmail($email);
-            if($checkResult){
-                $hash = User::getPasswordForLogin($checkResult);
-                if(password_verify($password, $hash)){
-                    User::auth($checkResult);
-                    header('location: /admin/cabinet');
+            if (User::checkEmail($email)) {
+                $checkResult = User::checkLoginEmail($email);
+                if ($checkResult) {
+                    $hash = User::getPasswordForLogin($checkResult);
+                    if (password_verify($password, $hash)) {
+                        User::auth($checkResult);
+                        header('location: /admin/cabinet');
+                    }
+                } else {
+                    $errors[] = "Неправильный email или пароль!";
                 }
+            } else {
+                $errors[] = "Некорректный email!";
             }
+
         }
 
-        require_once ROOT.'/views/admin/login.php';
+        require_once ROOT . '/views/admin/login.php';
         return true;
     }
 
