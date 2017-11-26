@@ -12,10 +12,13 @@ class AdminController{
         if(isset($_POST['submit'])){
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $checkResult = User::checkLoginData($password, $email);
+            $checkResult = User::checkLoginEmail($email);
             if($checkResult){
-                User::auth($checkResult);
-                header('location: /admin/cabinet');
+                $hash = User::getPasswordForLogin($checkResult);
+                if(password_verify($password, $hash)){
+                    User::auth($checkResult);
+                    header('location: /admin/cabinet');
+                }
             }
         }
 
@@ -42,7 +45,7 @@ class AdminController{
         $newPassword = false;
         if(isset($_POST['submit'])){
             $oldPassword = $_POST['oldPassword'];
-            $oldHash = User::getPassword();
+            $oldHash = User::getPasswordForChange();
             if(password_verify($oldPassword, $oldHash)){
                    $newPassword = $_POST['newPassword'];
                    $newHash = password_hash($newPassword, PASSWORD_DEFAULT);

@@ -2,17 +2,26 @@
 
 class User{
 
-    public static function checkLoginData($pass, $email){
+    public static function checkLoginEmail($email){
         $db = Db::getConnection();
-        $sql = "SELECT `id` FROM `user` WHERE `email` = :email AND `password` = :pass";
-        $password =
+        $sql = "SELECT `id` FROM `user` WHERE `email` = :email";
         $result = $db->prepare($sql);
         $result->bindParam(':email', $email);
-        $result->bindParam(':pass', $pass);
         $result->execute();
 
         if($row = $result->fetch()){
             return $row['id'];
+        }
+        else return false;
+    }
+    public static function getPasswordForLogin($id){
+        $db = Db::getConnection();
+        $sql = "SELECT `password` FROM `user` WHERE `id` = :id";
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id);
+        $result->execute();
+        if($row = $result->fetch()){
+            return $row['password'];
         }
         else return false;
     }
@@ -53,7 +62,7 @@ class User{
         $result->bindParam('id', $id);
         $result->execute();
     }
-    public static function getPassword(){
+    public static function getPasswordForChange(){
         $db = Db::getConnection();
         $id = $_SESSION['user'];
         $sql = "SELECT `password` FROM `user` WHERE `id` = :id";
