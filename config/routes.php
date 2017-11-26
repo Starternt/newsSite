@@ -22,5 +22,6 @@ return array(
 
     'page-([0-9]+)' => 'site/index/$1',
     'logout' => 'admin/logout',
+    'change' => 'admin/change',
     '' => 'site/index'
 );

@@ -4,8 +4,8 @@ class User{
 
     public static function checkLoginData($pass, $email){
         $db = Db::getConnection();
-        $sql = "SELECT * FROM `user` WHERE `email` = :email AND `password` = :pass";
-
+        $sql = "SELECT `id` FROM `user` WHERE `email` = :email AND `password` = :pass";
+        $password =
         $result = $db->prepare($sql);
         $result->bindParam(':email', $email);
         $result->bindParam(':pass', $pass);
@@ -42,5 +42,26 @@ class User{
             else return false;
         }
         else return false;
+    }
+
+    public static function updatePassword($password){
+        $db = Db::getConnection();
+        $id = $_SESSION['user'];
+        $sql = "UPDATE `user` SET `password` = :password WHERE `id` = :id";
+        $result = $db->prepare($sql);
+        $result->bindParam('password', $password);
+        $result->bindParam('id', $id);
+        $result->execute();
+    }
+    public static function getPassword(){
+        $db = Db::getConnection();
+        $id = $_SESSION['user'];
+        $sql = "SELECT `password` FROM `user` WHERE `id` = :id";
+        $result = $db->prepare($sql);
+        $result->bindParam('id', $id);
+        $result->execute();
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $row = $result->fetch();
+        return $row['password'];
     }
 }

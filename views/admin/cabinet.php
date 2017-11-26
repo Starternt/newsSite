@@ -19,6 +19,7 @@
                 <li><a href="/admin/category">Управление разделами</a></li>
             </ul>
             <a href="/logout"><button class="btn btn-default">Выйти из аккаунта</button></a>
+            <a href="/change"><button class="btn btn-default">Изменить пароль</button></a>
 
         </div>
     </div>

@@ -3,11 +3,8 @@
 class AdminController{
 
     public function actionLogin(){
-        if(User::isLogged()){
-            $userId = $_SESSION['user'];
-            if(User::isAdmin()){
-                header('location: /admin/cabinet');
-            }
+        if(User::isAdmin()){
+            header('location: /admin/cabinet');
         }
         $email = false;
         $password = false;
@@ -26,21 +23,34 @@ class AdminController{
         return true;
     }
 
-    public function actionIndex(){
-        if(!User::isLogged()){
-            header('location: /');
-        }
-        $userId = $_SESSION['user'];
-        if(!User::isAdmin()){
+    public function actionIndex()
+    {
+        if (!User::isAdmin()) {
             header('location: /');
         }
 
-        require_once ROOT.'/views/admin/cabinet.php';
+        require_once ROOT . '/views/admin/cabinet.php';
         return true;
     }
 
     public function actionLogout(){
         unset($_SESSION['user']);
         header('location: /');
+    }
+
+    public function actionChange(){
+        $newPassword = false;
+        if(isset($_POST['submit'])){
+            $oldPassword = $_POST['oldPassword'];
+            $oldHash = User::getPassword();
+            if(password_verify($oldPassword, $oldHash)){
+                   $newPassword = $_POST['newPassword'];
+                   $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
+                   User::updatePassword($newHash);
+                   header('location: /admin/cabinet');
+            }
+        }
+        require_once ROOT.'/views/admin/change.php';
+        return true;
     }
 }
