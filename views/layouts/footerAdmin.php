@@ -5,7 +5,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Какой-то текст</p>
+                <p class="pull-left">Это подземелье сайта и здесь расположен текст</p>
                 <p class="pull-right">Панель администратора</p>
             </div>
         </div>

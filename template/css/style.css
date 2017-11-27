@@ -149,10 +149,14 @@ html, body {
 .footer-bottom p {
     padding-top: 15px;
 }
-/*.error{*/
-    /*border: 1px solid orangered;*/
-    /*border-radius: 2px;*/
-/*}*/
-/*.errors{*/
-    /*min-height: 30px;*/
-/*}*/
+.form-group{
+    padding-top: 10px;
+}
+#passError{
+    margin-top: -4px;
+    margin-bottom: 0px;
+    padding: 8px;
+}
+.cabinet-options{
+    margin-top: 50px;
+}

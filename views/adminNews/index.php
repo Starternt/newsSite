@@ -22,9 +22,9 @@
                     <th>Краткое описание</th>
                     <th>Дата добавления</th>
                     <th>Статус</th>
-                    <th>edit</th>
-                    <th>del</th>
-                    <th>view</th>
+                    <th>Ред.</th>
+                    <th>Удал.</th>
+                    <th>Просмотр</th>
                 </tr>
                 <?php foreach ($news as $newsItem): ?>
                     <tr>

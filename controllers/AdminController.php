@@ -2,7 +2,6 @@
 
 class AdminController
 {
-
     public function actionLogin()
     {
         if (User::isAdmin()) {

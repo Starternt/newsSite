@@ -1,4 +1,4 @@
-<?php include_once ROOT.'/views/layouts/header.php'?>
+<?php include_once ROOT.'/views/layouts/headerAdmin.php'?>
 
 <section>
     <div class="container">
@@ -18,8 +18,10 @@
                 <li><a href="/admin/news">Управление новостями</a></li>
                 <li><a href="/admin/category">Управление разделами</a></li>
             </ul>
+            <div class="cabinet-options">
             <a href="/logout"><button class="btn btn-default">Выйти из аккаунта</button></a>
             <a href="/change"><button class="btn btn-default">Изменить пароль</button></a>
+            </div>
 
         </div>
     </div>
@@ -34,4 +36,4 @@
 
 
 
-<?php include_once ROOT.'/views/layouts/footer.php'?>
+<?php include_once ROOT.'/views/layouts/footerAdmin.php'?>

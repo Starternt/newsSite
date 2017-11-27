@@ -26,7 +26,9 @@
                         <input type="password" name="password" class="form-control" id="inputPassword"
                                placeholder="Пароль"
                                value="<?php echo $password; ?>" required>
+
                     </div>
+                    <div id="passError" class="col-xs-4 alert alert-warning">Длина пароля должна быть не менее 4-х символов!</div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-offset-4 col-xs-4">
@@ -38,3 +40,23 @@
     </div>
 
 <?php include_once ROOT . '/views/layouts/footer.php' ?>
+
+<script>
+    submit = $('[type="submit"]');
+    $("#inputPassword").keyup(function(){
+        pass = $("#inputPassword").val();
+        console.log(pass.length);
+        if(pass.length >= 4){
+            $("#passError").hide();
+            if(submit.attr("disabled")){
+                submit.removeAttr("disabled");
+            }
+        }
+        else {
+            $("#passError").show();
+            if(!submit.attr("disabled")) {
+                submit.attr("disabled", "disabled");
+            }
+        }
+    });
+</script>
