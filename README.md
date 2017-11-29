@@ -5,7 +5,7 @@ The project realize next functions:
 - semantic ULR;
 - login and change password;
 - hashing passwords;
-- display a list of news on mainpage, by categories. That's include some information about news (an image, date, a category, ect);
+- display a list of news on mainpage, by categories. That's include some information about news (an image, date, a category, etc);
 - sorting functions. Now only 2: by asc and desc (default) by an add_date field;
 - viewing separate news;
 - admin panel which include control for news and categories;
