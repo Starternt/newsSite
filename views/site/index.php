@@ -39,8 +39,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-3">
-            <h2>Главные новости</h2>
-        </div>
+            <h2 style="display:inline-block;">Главные новости</h2>
+            <ul class="sort-list">
+                <li class="sort-options"><a href="/">Без сортировки</a></li>
+                <li class="sort-options"><a href="?sort=asc">Дата добавения: новые</a></li>
+                <li class="sort-options"><a href="?sort=desc">Дата добавения: новые</a></li>
+            </ul>
+        </>
+
     </div>
 </div>
 
@@ -63,11 +69,11 @@
                         <a href="<?php echo '/category/'.$news['category_id'];?>"><button class="btn btn-default tag-item"><?php echo $categoryForNews[$news['id']]['name'];?></button></a>
                         <a href="<?php echo '/news/'.$news['id']; ?>"><button class="btn-link full-review">Полный обзор -></button></a>
                     </div>
-                </div>
 
             </div>
             <div class="col-md-1"></div>
         </div>
+    </div>
     </div>
 <?php endforeach; ?>
 <div class="container">
@@ -75,8 +81,5 @@
         <?php echo $pagination->get(); ?>
     </div>
 </div>
-
-
-
 
 <?php include_once ROOT.'/views/layouts/footer.php'?>

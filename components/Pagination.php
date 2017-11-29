@@ -49,7 +49,7 @@ class Pagination
      * @param type $limit <p>Количество записей на страницу</p>
      * @param type $index <p>Ключ для url</p>
      */
-    public function __construct($total, $currentPage, $limit, $index)
+    public function __construct($total, $currentPage, $limit, $index, $sort = '')
     {
         # Устанавливаем общее количество записей
         $this->total = $total;
@@ -65,6 +65,9 @@ class Pagination
 
         # Устанавливаем номер текущей страницы
         $this->setCurrentPage($currentPage);
+
+        # Дополнение для сортировки (не авторское)
+        $this->sort = $sort;
     }
 
     /**
@@ -125,9 +128,12 @@ class Pagination
 
         $currentURI = rtrim($_SERVER['REQUEST_URI'], '/') . '/';
         $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
+        $sortPart = explode('?', $currentURI);
+//        $sortPart[1] = rtrim($sortPart[1], '/');
+//        $sortPart[1] = '/'.$sortPart[1];
         # Формируем HTML код ссылки и возвращаем
         return
-            '<li><a href="' . $currentURI . $this->index . $page . '">' . $text . '</a></li>';
+            '<li><a href="' . $sortPart[0] . $this->index . $page . $this->sort . '">' . $text . '</a></li>';
     }
 
     /**

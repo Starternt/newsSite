@@ -39,11 +39,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-3">
-            <h2><?php foreach($categoryList as $categoryItem){
+            <h2 style="display:inline-block;"><?php foreach($categoryList as $categoryItem){
                     if($categoryItem['id'] == $categoryId){
                         echo $categoryItem['name'];
                     }
                 } ?></h2>
+            <ul class="sort-list-category">
+                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>">Без сортировки</a></li>
+                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=asc">Дата добавения: новые</a></li>
+                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=desc">Дата добавления: старые</a></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -84,7 +89,6 @@
         <?php echo $pagination->get(); ?>
     </div>
 </div>
-
 
 
 

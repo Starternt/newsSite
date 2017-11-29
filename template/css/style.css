@@ -152,11 +152,47 @@ html, body {
 .form-group{
     padding-top: 10px;
 }
-#passError{
+.passError{
     margin-top: -4px;
     margin-bottom: 0px;
     padding: 8px;
 }
+.matchPassword{
+    padding: 3px;
+    margin-left: 10px;
+    max-width: 370px;
+    margin-bottom: 0px;
+    margin-top: -15px;
+
+}
 .cabinet-options{
     margin-top: 50px;
+}
+.buttonChangePass{
+    margin-top: 10px;
+}
+.sort-list{
+    display: inline-block;
+    padding-left: 150px;
+}
+.sort-options{
+    color: #748996;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 2px;
+}
+.sort-options:hover {
+    color: midnightblue;
+}
+.sort-options:visited{
+    color: midnightblue;
+}
+.sort-list-category{
+    display: inline-block;
+    position: absolute;
+    right: 110px;
+    top: 85px;
 }

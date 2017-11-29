@@ -3,15 +3,43 @@
 class News
 {
     const SHOW_BY_DEFAULT = 6;
-    public static function getAllNewsList($page = 1)
+    public static function getAllNewsList($page = 1, $sort = 'DESC')
     {
         $db = Db::getConnection();
+
         $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
         $limit = self::SHOW_BY_DEFAULT;
 
         $sql = "SELECT `id`, `title`, `category_id`, `short_description`, `add_date` FROM `news`
-                WHERE `status` = 1 LIMIT :limit OFFSET :offset";
+                WHERE `status` = 1 ORDER BY `add_date` $sort LIMIT :limit OFFSET :offset";
         $result = $db->prepare($sql);
+        $result->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $result->bindParam(':offset', $offset, PDO::PARAM_INT);
+        $result->execute();
+
+        $i = 0;
+        $newsList = array();
+        while ($row = $result->fetch()) {
+            $newsList[$i]['id'] = $row['id'];
+            $newsList[$i]['title'] = $row['title'];
+            $newsList[$i]['category_id'] = $row['category_id'];
+            $newsList[$i]['short_description'] = $row['short_description'];
+            $newsList[$i]['add_date'] = $row['add_date'];
+            $i++;
+        }
+        return $newsList;
+    }
+
+    public static function getNewsByCategory($categoryId, $page = 1, $sort = 'DESC'){
+        $db = Db::getConnection();
+
+        $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
+        $limit = self::SHOW_BY_DEFAULT;
+
+        $sql = "SELECT `id`, `title`, `category_id`, `short_description`, `add_date` FROM `news`
+                WHERE `status` = 1 AND `category_id` = :categoryId ORDER BY `add_date` $sort LIMIT :limit OFFSET :offset";
+        $result = $db->prepare($sql);
+        $result->bindParam(':categoryId', $categoryId);
         $result->bindParam(':limit', $limit, PDO::PARAM_INT);
         $result->bindParam(':offset', $offset, PDO::PARAM_INT);
         $result->execute();
@@ -93,39 +121,12 @@ class News
     public static function getTotalNewsByCategory($categoryId){
         $db = Db::getConnection();
 
-        $sql = "SELECT COUNT(`id`) as count FROM news WHERE `category` = :categoryId";
+        $sql = "SELECT COUNT(`id`) AS count FROM news WHERE `category_id` = :categoryId";
         $result = $db->prepare($sql);
         $result->bindParam(':categoryId', $categoryId);
         $result->execute();
         $row = $result->fetch();
         return $row['count'];
-    }
-
-    public static function getNewsByCategory($categoryId, $page = 1){
-        $db = Db::getConnection();
-
-        $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
-        $limit = self::SHOW_BY_DEFAULT;
-
-        $sql = "SELECT `id`, `title`, `category_id`, `short_description`, `add_date` FROM `news`
-                WHERE `status` = 1 AND `category_id` = :categoryId LIMIT :limit OFFSET :offset";
-        $result = $db->prepare($sql);
-        $result->bindParam(':categoryId', $categoryId);
-        $result->bindParam(':limit', $limit, PDO::PARAM_INT);
-        $result->bindParam(':offset', $offset, PDO::PARAM_INT);
-        $result->execute();
-
-        $i = 0;
-        $newsList = array();
-        while ($row = $result->fetch()) {
-            $newsList[$i]['id'] = $row['id'];
-            $newsList[$i]['title'] = $row['title'];
-            $newsList[$i]['category_id'] = $row['category_id'];
-            $newsList[$i]['short_description'] = $row['short_description'];
-            $newsList[$i]['add_date'] = $row['add_date'];
-            $i++;
-        }
-        return $newsList;
     }
 
     public static function getImageForNewsItem($id){
