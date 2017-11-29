@@ -8,9 +8,8 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="/">Main page</a></li>
-                    <li class=""><a href="#">Account</a></li>
-                    <li class=""><a href="#">About</a></li>
+                    <li class=""><a href="/">Главная страница</a></li>
+                    <li class=""><a href="#">Вход в кабинет</a></li>
                 </ul>
             </div>
         </div>
@@ -46,8 +45,8 @@
                 } ?></h2>
             <ul class="sort-list-category">
                 <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>">Без сортировки</a></li>
-                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=asc">Дата добавения: новые</a></li>
-                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=desc">Дата добавления: старые</a></li>
+                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=asc">Дата добавения: старые</a></li>
+                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=desc">Дата добавления: новые</a></li>
             </ul>
         </div>
     </div>

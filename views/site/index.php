@@ -8,9 +8,8 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Main page</a></li>
-                    <li class=""><a href="/admin">Account</a></li>
-                    <li class=""><a href="#">About</a></li>
+                    <li class="active"><a href="/">Главная страница</a></li>
+                    <li class=""><a href="/admin">Вход в кабинет</a></li>
                 </ul>
             </div>
         </div>
@@ -42,7 +41,7 @@
             <h2 style="display:inline-block;">Главные новости</h2>
             <ul class="sort-list-category">
                 <li class="sort-options"><a href="/">Без сортировки</a></li>
-                <li class="sort-options"><a href="?sort=asc">Дата добавения: новые</a></li>
+                <li class="sort-options"><a href="?sort=asc">Дата добавения: старые</a></li>
                 <li class="sort-options"><a href="?sort=desc">Дата добавения: новые</a></li>
             </ul>
         </div>

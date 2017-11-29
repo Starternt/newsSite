@@ -196,6 +196,14 @@ class News
         $result = $db->prepare($sql);
         $result->bindParam(':id', $id);
         $result->execute();
+
+        $pathToImage = ROOT.self::getImageForNewsItem($id);
+        if(file_exists($pathToImage)){
+            if(is_file($pathToImage)){
+                unlink(realpath($pathToImage));
+            }
+        }
+
     }
 
     public static function getNewsById($id){

@@ -21,7 +21,7 @@
                             <p>Краткое описание</p>
                             <input type="text" name="short_description" placeholder="Краткое описание" value="<?php echo $news['short_description']; ?>">
                             <p>Описание</p>
-                            <textarea name="description" cols="140" rows="20"><?php echo $news['description']; ?>"></textarea>
+                            <textarea name="description" cols="140" rows="20"><?php echo $news['description']; ?></textarea>
                             <p>Категория</p>
                             <select name="category">
                                 <?php if (is_array($categories)): ?>
