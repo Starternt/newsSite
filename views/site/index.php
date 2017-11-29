@@ -40,12 +40,12 @@
     <div class="row">
         <div class="col-md-offset-3">
             <h2 style="display:inline-block;">Главные новости</h2>
-            <ul class="sort-list">
+            <ul class="sort-list-category">
                 <li class="sort-options"><a href="/">Без сортировки</a></li>
                 <li class="sort-options"><a href="?sort=asc">Дата добавения: новые</a></li>
                 <li class="sort-options"><a href="?sort=desc">Дата добавения: новые</a></li>
             </ul>
-        </>
+        </div>
 
     </div>
 </div>

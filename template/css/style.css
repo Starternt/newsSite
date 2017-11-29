@@ -171,10 +171,6 @@ html, body {
 .buttonChangePass{
     margin-top: 10px;
 }
-.sort-list{
-    display: inline-block;
-    padding-left: 150px;
-}
 .sort-options{
     color: #748996;
     text-decoration: none;
