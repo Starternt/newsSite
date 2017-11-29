@@ -1,4 +1,4 @@
-# newsSite
+# News site
 This project has been created only for education and demonstration purposes.
 Using patterns - MVC, front controller. Also there's some jquery, javascript (You can find some of it in headers, footers, and views for login page) bootstrap. Database - MySql. For work with this one using PDO.
 The project realize next functions:
