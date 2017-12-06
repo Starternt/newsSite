@@ -34,9 +34,12 @@
                         <td><?php echo $newsItem['short_description']; ?></td>
                         <td><?php echo $newsItem['add_date']; ?></td>
                         <td><?php echo $newsItem['status']; ?></td>
-                        <td><a href="/admin/news/edit/<?php echo $newsItem['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td><a href="/admin/news/delete/<?php echo $newsItem['id']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>
-                        <td><a href="/admin/news/view/<?php echo $newsItem['id']; ?>" title="Просмотр новости"><i class="fa fa-fighter-jet fa-2x"></i></a></td>
+                        <td><a href="/admin/news/edit/<?php echo $newsItem['id']; ?>" title="Редактировать"><i
+                                        class="fa fa-pencil-square-o"></i></a></td>
+                        <td><a href="/admin/news/delete/<?php echo $newsItem['id']; ?>" title="Удалить"><i
+                                        class="fa fa-times"></i></a></td>
+                        <td><a href="/admin/news/view/<?php echo $newsItem['id']; ?>" title="Просмотр новости"><i
+                                        class="fa fa-fighter-jet fa-2x"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -45,4 +48,3 @@
 </section>
 
 <?php include ROOT . '/views/layouts/footerAdmin.php'; ?>
-

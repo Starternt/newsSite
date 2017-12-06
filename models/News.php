@@ -3,6 +3,12 @@
 class News
 {
     const SHOW_BY_DEFAULT = 6;
+
+    /**
+     * @param int $page
+     * @param string $sort
+     * @return array
+     */
     public static function getAllNewsList($page = 1, $sort = 'DESC')
     {
         $db = Db::getConnection();
@@ -30,6 +36,12 @@ class News
         return $newsList;
     }
 
+    /**
+     * @param $categoryId
+     * @param int $page
+     * @param string $sort
+     * @return array
+     */
     public static function getNewsByCategory($categoryId, $page = 1, $sort = 'DESC'){
         $db = Db::getConnection();
 
@@ -57,6 +69,10 @@ class News
         return $newsList;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public static function getNewsItem($id){
         $db = Db::getConnection();
         $sql = "SELECT `id`, `title`, `category_id`, `description`, `add_date` FROM `news`
@@ -70,19 +86,20 @@ class News
         return $row;
     }
 
+    /**
+     * @param $arrayIds
+     * @return array|bool
+     */
     public static function getCategoryForNews($arrayIds)
     {
         if($arrayIds == false){
             return false;
         }
         $db = Db::getConnection();
-//        $ids = implode(",", $arrayIds);
         $ids = str_repeat('?,', count($arrayIds) - 1) . '?';
-//        $sql = 'SELECT category.name, news.id FROM category LEFT JOIN news ON category.id = news.category_id WHERE news.id IN ('.$ids.')';
         $sql = "SELECT category.name, news.id FROM category LEFT JOIN news ON category.id = news.category_id WHERE news.id IN ($ids)";
 
         $result = $db->prepare($sql);
-//        $result->bindParam(':ids', $ids);
         $result->execute($arrayIds);
         $i = 3;
         $listIds = array();
@@ -93,6 +110,10 @@ class News
         return $listIds;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public static function getCategoryForNewsItem($id){
         $db = Db::getConnection();
         $sql = "SELECT category.name, news.id FROM category LEFT JOIN news ON category.id = news.category_id WHERE news.id = :id";
@@ -104,9 +125,11 @@ class News
         $row = $result->fetch();
         return $row['name'];
     }
-//SELECT category.name FROM category LEFT JOIN news ON category.id = news.category_id WHERE news.id IN (4, 6, 7);
 
 
+    /**
+     * @return mixed
+     */
     public static function getTotalNewsMainPage(){
         $db = Db::getConnection();
 
@@ -118,6 +141,10 @@ class News
         return $row['count'];
     }
 
+    /**
+     * @param $categoryId
+     * @return mixed
+     */
     public static function getTotalNewsByCategory($categoryId){
         $db = Db::getConnection();
 
@@ -129,6 +156,10 @@ class News
         return $row['count'];
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public static function getImageForNewsItem($id){
         $path = '/upload/img/'.$id.'.jpg';
         $noImage = "No image";
@@ -137,6 +168,11 @@ class News
         }
         else return $noImage;
     }
+
+    /**
+     * @param $ids
+     * @return array
+     */
     public static function getImagesForNews($ids){
         $FirstPart = '/upload/img/';
         $expansion = '.jpg';
@@ -151,6 +187,9 @@ class News
         return $paths;
     }
 
+    /**
+     * @return array
+     */
     public static function getAllNewsListAdmin()
     {
         $db = Db::getConnection();
@@ -173,6 +212,10 @@ class News
         return $newsList;
     }
 
+    /**
+     * @param $options
+     * @return bool|string
+     */
     public static function addNews($options){
         $db = Db::getConnection();
         $sql = "INSERT INTO `news`(`title`, `category_id`, `short_description`, `description`, `status`)
@@ -190,6 +233,9 @@ class News
         else return false;
     }
 
+    /**
+     * @param $id
+     */
     public static function deleteNewsById($id){
         $db = Db::getConnection();
         $sql = "DELETE FROM `news` WHERE `id` = :id";
@@ -206,6 +252,10 @@ class News
 
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public static function getNewsById($id){
         $db = Db::getConnection();
         $sql = "SELECT * FROM `news` WHERE `id` = :id";
@@ -217,6 +267,11 @@ class News
         return $result->fetch();
     }
 
+    /**
+     * @param $id
+     * @param $options
+     * @return bool
+     */
     public static function updateNewsById($id, $options){
         $db = Db::getConnection();
         $sql = "UPDATE `news` SET `title` = :title, `category_id` = :category_id, `short_description` = :short_description, 

@@ -1,4 +1,4 @@
-<?php require_once ROOT.'/views/layouts/headerAdmin.php'?>
+<?php require_once ROOT . '/views/layouts/headerAdmin.php' ?>
 
     <section>
         <div class="container">
@@ -26,8 +26,10 @@
                             <td><?php echo $category['id']; ?></td>
                             <td><?php echo $category['name']; ?></td>
                             <td><?php echo $category['status']; ?></td>
-                            <td><a href="/admin/category/edit/<?php echo $category['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
-                            <td><a href="/admin/category/delete/<?php echo $category['id']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>
+                            <td><a href="/admin/category/edit/<?php echo $category['id']; ?>" title="Редактировать"><i
+                                            class="fa fa-pencil-square-o"></i></a></td>
+                            <td><a href="/admin/category/delete/<?php echo $category['id']; ?>" title="Удалить"><i
+                                            class="fa fa-times"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
@@ -35,7 +37,4 @@
         </div>
     </section>
 
-
-
-
-<?php require_once ROOT.'/views/layouts/footerAdmin.php'?>
+<?php require_once ROOT . '/views/layouts/footerAdmin.php' ?>

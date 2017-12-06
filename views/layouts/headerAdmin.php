@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>Admin panel</title>
 
-    <!-- Bootstrap -->
-<!--    <link rel="stylesheet" href="/template/css/lightbox.css">-->
     <link href="/template/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/template/css/style.css">
     <link rel="stylesheet" href="/template/css/font-awesome.min.css">
@@ -14,8 +12,8 @@
 <body>
 <div class="page-wrapper">
 
-    <header id="header"><!--header-->
-        <div class="header_top"><!--header_top-->
+    <header id="header">
+        <div class="header_top">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
@@ -34,4 +32,4 @@
                     </div>
                 </div>
             </div>
-        </div><!--/header_top-->
+        </div>

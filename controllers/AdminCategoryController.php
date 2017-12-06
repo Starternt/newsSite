@@ -1,20 +1,24 @@
 <?php
 
-class AdminCategoryController{
-    public function actionIndex(){
-        if(!User::isAdmin()){
+class AdminCategoryController
+{
+    public function actionIndex()
+    {
+        if (!User::isAdmin()) {
             header('location: /');
         }
         $categories = Category::getCategoryList();
-        require_once ROOT.'/views/adminCategory/index.php';
+        require_once ROOT . '/views/adminCategory/index.php';
         return true;
     }
-    public function actionEdit($id){
-        if(!User::isAdmin()){
+
+    public function actionEdit($id)
+    {
+        if (!User::isAdmin()) {
             header('location: /');
         }
         $category = Category::getCategoryById($id);
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $sort = $_POST['sort_order'];
             $status = $_POST['status'];
@@ -22,28 +26,31 @@ class AdminCategoryController{
             header('location: /admin/category');
         }
 
-        require_once ROOT.'/views/adminCategory/edit.php';
+        require_once ROOT . '/views/adminCategory/edit.php';
         return true;
     }
 
-    public function actionDelete($id){
-        if(!User::isAdmin()){
+    public function actionDelete($id)
+    {
+        if (!User::isAdmin()) {
             header('location: /');
         }
         $category = Category::getCategoryById($id);
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
             Category::deleteCategoryById($id);
             header('location: /admin/category');
         }
 
-        require_once ROOT.'/views/adminCategory/delete.php';
+        require_once ROOT . '/views/adminCategory/delete.php';
         return true;
     }
-    public function actionAdd(){
-        if(!User::isAdmin()){
+
+    public function actionAdd()
+    {
+        if (!User::isAdmin()) {
             header('location: /');
         }
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $sort = $_POST['sort_order'];
             $status = $_POST['status'];
@@ -51,7 +58,7 @@ class AdminCategoryController{
             header('location: /admin/category');
         }
 
-        require_once ROOT.'/views/adminCategory/add.php';
+        require_once ROOT . '/views/adminCategory/add.php';
         return true;
     }
 }

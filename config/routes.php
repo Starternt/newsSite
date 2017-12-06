@@ -16,7 +16,7 @@ return array(
 
     'admin/cabinet' => 'admin/index',
     'admin' => 'admin/login',
-
+    // Регулярное выражение определяет вид сортировки
     'category/([0-9]+)/page-([0-9]+)/([\?]{1}[a-z0-9]+[\=]{1}[a-z0-9]+)' => 'category/sort/$1/$2',
     'category/([0-9]+)/([\?]{1}[a-z0-9]+[\=]{1}[a-z0-9]+)' => 'category/sort/$1',
     'category/([0-9]+)/page-([0-9]+)' => 'category/index/$1/$2',

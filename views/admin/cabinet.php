@@ -1,4 +1,4 @@
-<?php include_once ROOT.'/views/layouts/headerAdmin.php'?>
+<?php include_once ROOT . '/views/layouts/headerAdmin.php' ?>
 
 <section>
     <div class="container">
@@ -19,21 +19,16 @@
                 <li><a href="/admin/category">Управление разделами</a></li>
             </ul>
             <div class="cabinet-options">
-            <a href="/logout"><button class="btn btn-default">Выйти из аккаунта</button></a>
-            <a href="/change"><button class="btn btn-default">Изменить пароль</button></a>
+                <a href="/logout">
+                    <button class="btn btn-default">Выйти из аккаунта</button>
+                </a>
+                <a href="/change">
+                    <button class="btn btn-default">Изменить пароль</button>
+                </a>
             </div>
 
         </div>
     </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-<?php include_once ROOT.'/views/layouts/footerAdmin.php'?>
+<?php include_once ROOT . '/views/layouts/footerAdmin.php' ?>

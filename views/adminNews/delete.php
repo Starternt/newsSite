@@ -13,11 +13,10 @@
                         <li class="active">Удалить новость</li>
                     </ol>
                 </div>
-                <h4>Вы действительно хотите удалить новость #<?php echo $id.' ('.$news['title'].')'; ?>?</h4>
+                <h4>Вы действительно хотите удалить новость #<?php echo $id . ' (' . $news['title'] . ')'; ?>?</h4>
                 <form action="" method="post">
                     <input type="submit" name="submit" value="Подтвердить">
                 </form>
-
             </div>
         </div>
     </section>

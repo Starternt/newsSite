@@ -1,8 +1,10 @@
 <?php
 
-class Db{
-    public static function getConnection(){
-        $paramsPath = ROOT.'/config/db_params.php';
+class Db
+{
+    public static function getConnection()
+    {
+        $paramsPath = ROOT . '/config/db_params.php';
         $params = include($paramsPath);
 
         $dsn = "mysql:host={$params['host']};dbname={$params['dbname']}";
@@ -11,5 +13,4 @@ class Db{
 
         return $db;
     }
-
 }

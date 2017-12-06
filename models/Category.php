@@ -1,7 +1,12 @@
 <?php
 
-class Category{
-    public static function getCategoryList(){
+class Category
+{
+    /**
+     * @return array
+     */
+    public static function getCategoryList()
+    {
         $db = Db::getConnection();
 
         $sql = "SELECT `id`, `name`, `sort_order`, `status` FROM `category`";
@@ -10,7 +15,7 @@ class Category{
 
         $i = 0;
         $categoryList = array();
-        while($row = $result->fetch()){
+        while ($row = $result->fetch()) {
             $categoryList[$i]['id'] = $row['id'];
             $categoryList[$i]['name'] = $row['name'];
             $categoryList[$i]['sort_order'] = $row['sort_order'];
@@ -20,7 +25,11 @@ class Category{
         return $categoryList;
     }
 
-    public static function getCategoryListAdmin(){
+    /**
+     * @return array
+     */
+    public static function getCategoryListAdmin()
+    {
         $db = Db::getConnection();
 
         $sql = "SELECT `id`, `name` FROM `category`";
@@ -28,12 +37,18 @@ class Category{
         $result->execute();
 
         $categoryList = array();
-        while($row = $result->fetch()){
+        while ($row = $result->fetch()) {
             $categoryList[$row['id']]['name'] = $row['name'];
         }
         return $categoryList;
     }
-    public static function getCategoryById($id){
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public static function getCategoryById($id)
+    {
         $db = Db::getConnection();
         $sql = "SELECT * FROM `category` WHERE id = :id";
         $result = $db->prepare($sql);
@@ -44,7 +59,14 @@ class Category{
         return $result->fetch();
     }
 
-    public static function updateCategoryById($id, $name, $sort, $status){
+    /**
+     * @param $id
+     * @param $name
+     * @param $sort
+     * @param $status
+     */
+    public static function updateCategoryById($id, $name, $sort, $status)
+    {
         $db = Db::getConnection();
         $sql = "UPDATE `category` SET `name` = :name, `sort_order` = :sort, `status` = :status WHERE `id` = :id";
         $result = $db->prepare($sql);
@@ -55,7 +77,11 @@ class Category{
         $result->execute();
     }
 
-    public static function deleteCategoryById($id){
+    /**
+     * @param $id
+     */
+    public static function deleteCategoryById($id)
+    {
         $db = Db::getConnection();
         $sql = "DELETE FROM `category` WHERE `id` = :id";
         $result = $db->prepare($sql);
@@ -63,10 +89,16 @@ class Category{
         $result->execute();
     }
 
-    public static function addCategory($name, $sort, $status){
+    /**
+     * @param $name
+     * @param $sort
+     * @param $status
+     */
+    public static function addCategory($name, $sort, $status)
+    {
         $db = Db::getConnection();
         $sql = "INSERT INTO `category`(`name`, `sort_order`, `status`) VALUES(:name, :sort, :status)";
-        $result= $db->prepare($sql);
+        $result = $db->prepare($sql);
         $result->bindParam(':name', $name);
         $result->bindParam(':sort', $sort);
         $result->bindParam(':status', $status);

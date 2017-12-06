@@ -14,16 +14,16 @@
                     </ol>
                 </div>
 
-
                 <br/>
 
                 <div class="col-lg-4">
                     <div class="login-form">
-                        <form action="" method="post" enctype="multipart/form-data"> <!-- enctype необходим для отправки изображения -->
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <!-- enctype необходим для отправки изображения -->
                             <p>Заголовок</p>
-                            <input type="text" name="title" placeholder="Заголовок" value="" >
+                            <input type="text" name="title" placeholder="Заголовок" value="">
                             <p>Краткое описание</p>
-                            <input type="text" name="short_description" placeholder="Краткое описание" value="" >
+                            <input type="text" name="short_description" placeholder="Краткое описание" value="">
                             <p>Описание $</p>
                             <textarea name="description" cols="140" rows="20"></textarea>
                             <p>Категория</p>
@@ -31,7 +31,7 @@
                                 <?php if (is_array($categories)): ?>
                                     <?php foreach ($categories as $category): ?>
                                         <option
-                                            value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                                                value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </select>
@@ -50,7 +50,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

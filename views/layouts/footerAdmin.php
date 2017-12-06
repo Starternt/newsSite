@@ -1,7 +1,7 @@
 <div class="page-buffer"></div>
 </div>
 
-<footer id="footer" class="page-footer"><!--Footer-->
+<footer id="footer" class="page-footer">
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
@@ -10,12 +10,11 @@
             </div>
         </div>
     </div>
-</footer><!--/Footer-->
+</footer>
 </body>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
 <script src="/template/js/jquery.js"></script>
 <script src="/template/js/bootstrap.min.js"></script>
 <script src="/template/js/lightbox.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 </body>
 </html>

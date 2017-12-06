@@ -18,31 +18,31 @@ class Router
     public function run()
     {
         $uri = $this->getURI();
-
+        // Перебираем роуты в поисках нужного
         foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $uri)) {
                 $internalPath = preg_replace("~$uriPattern~", $path, $uri);
                 $segments = explode("/", $internalPath);
 
                 $controllerName = array_shift($segments);
-                $controllerName = ucfirst($controllerName)."Controller";
+                $controllerName = ucfirst($controllerName) . "Controller";
 
                 $actionName = array_shift($segments);
-                $actionName = "action".ucfirst($actionName);
+                $actionName = "action" . ucfirst($actionName);
 
-                $controllerFile = ROOT.'/controllers/'.$controllerName.".php";
+                $controllerFile = ROOT . '/controllers/' . $controllerName . ".php";
 
-                if(file_exists($controllerFile)){
+                if (file_exists($controllerFile)) {
                     include_once($controllerFile);
                 }
                 $parameters = $segments;
                 $controllerObject = new $controllerName;
+                // Вызыв функции экшена с параметрами
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
-                if($result != null){
+                if ($result != null) {
                     break;
                 }
             }
         }
     }
-
 }

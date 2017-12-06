@@ -13,7 +13,7 @@
                         <li class="active">Удалить категорию</li>
                     </ol>
                 </div>
-                <h4>Вы действительно хотите удалить категорию #<?php echo $id.' ('.$category['name'].')'; ?>?</h4>
+                <h4>Вы действительно хотите удалить категорию #<?php echo $id . ' (' . $category['name'] . ')'; ?>?</h4>
                 <form action="" method="post">
                     <input type="submit" name="submit" value="Подтвердить">
                 </form>

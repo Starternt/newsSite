@@ -1,5 +1,5 @@
-<?php include_once ROOT.'/views/layouts/header.php'?>
-<body>
+<?php include_once ROOT . '/views/layouts/header.php' ?>
+    <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="row">
@@ -14,7 +14,8 @@
             </div>
         </div>
     </div>
-</nav><br><br><br>
+</nav>
+<br><br><br>
 
 <!--Categories-->
 <div class="container-fluid">
@@ -24,8 +25,8 @@
                 <div class="categories">РАЗДЕЛЫ</div>
                 <?php $active = 1; ?>
                 <?php foreach ($categoryList as $category): ?>
-                    <a href="<?php if($category['id'] != 1) echo '/category/'.$category['id']; else echo '/';?>"
-                       class="list-group-item <?php if($category['id'] == $categoryId) echo "active"; ?>">
+                    <a href="<?php if ($category['id'] != 1) echo '/category/' . $category['id']; else echo '/'; ?>"
+                       class="list-group-item <?php if ($category['id'] == $categoryId) echo "active"; ?>">
                         <?php echo $category['name']; ?>
                     </a>
                 <?php endforeach; ?>
@@ -38,15 +39,17 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-3">
-            <h2 style="display:inline-block;"><?php foreach($categoryList as $categoryItem){
-                    if($categoryItem['id'] == $categoryId){
+            <h2 style="display:inline-block;"><?php foreach ($categoryList as $categoryItem) {
+                    if ($categoryItem['id'] == $categoryId) {
                         echo $categoryItem['name'];
                     }
                 } ?></h2>
             <ul class="sort-list-category">
                 <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>">Без сортировки</a></li>
-                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=asc">Дата добавения: старые</a></li>
-                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=desc">Дата добавления: новые</a></li>
+                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=asc">Дата добавения:
+                        старые</a></li>
+                <li class="sort-options"><a href="/category/<?php echo $categoryId; ?>/?sort=desc">Дата добавления:
+                        новые</a></li>
             </ul>
         </div>
     </div>
@@ -57,8 +60,9 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-8 news-item item-container">
-                <a href="<?php echo '/news/'.$news['id']; ?>">
-                    <img src="<?php echo $pathsToImages[$news['id']]['path']; ?>" alt="No image" width="160px" class="item-image">
+                <a href="<?php echo '/news/' . $news['id']; ?>">
+                    <img src="<?php echo $pathsToImages[$news['id']]['path']; ?>" alt="No image" width="160px"
+                         class="item-image">
                 </a>
                 <div class="container-fluid">
                     <b><h4 class="news-title"><?php echo $news['title']; ?></h4></b>
@@ -68,12 +72,14 @@
                     <span class="news-theme">Новости по теме:</span>
                     <span><a href="#" class="added">Добавлено: <?php echo $news['add_date']; ?></a></span><br>
                     <div class="tag-fullreview-container">
-                        <a href="<?php echo '/category/'.$news['category_id'];?>">
+                        <a href="<?php echo '/category/' . $news['category_id']; ?>">
                             <button class="btn btn-default tag-item">
-                                <?php if($categoryForNews != false) echo $categoryForNews[$news['id']]['name'];?>
+                                <?php if ($categoryForNews != false) echo $categoryForNews[$news['id']]['name']; ?>
                             </button>
                         </a>
-                        <a href="<?php echo '/news/'.$news['id']; ?>"><button class="btn-link full-review">Полный обзор -></button></a>
+                        <a href="<?php echo '/news/' . $news['id']; ?>">
+                            <button class="btn-link full-review">Полный обзор -></button>
+                        </a>
                     </div>
                 </div>
 
@@ -91,4 +97,4 @@
 
 
 
-<?php include_once ROOT.'/views/layouts/footer.php'?>
+<?php include_once ROOT . '/views/layouts/footer.php' ?>

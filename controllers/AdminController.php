@@ -45,24 +45,26 @@ class AdminController
         return true;
     }
 
-    public function actionLogout(){
+    public function actionLogout()
+    {
         unset($_SESSION['user']);
         header('location: /');
     }
 
-    public function actionChange(){
+    public function actionChange()
+    {
         $newPassword = false;
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
             $oldPassword = $_POST['oldPassword'];
             $oldHash = User::getPasswordForChange();
-            if(password_verify($oldPassword, $oldHash)){
-                   $newPassword = $_POST['newPassword'];
-                   $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
-                   User::updatePassword($newHash);
-                   header('location: /admin/cabinet');
+            if (password_verify($oldPassword, $oldHash)) {
+                $newPassword = $_POST['newPassword'];
+                $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
+                User::updatePassword($newHash);
+                header('location: /admin/cabinet');
             }
         }
-        require_once ROOT.'/views/admin/change.php';
+        require_once ROOT . '/views/admin/change.php';
         return true;
     }
 }
