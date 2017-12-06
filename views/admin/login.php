@@ -28,7 +28,7 @@
                            value="<?php echo $password; ?>" required>
 
                 </div>
-                <div id="passError" class="col-xs-4 alert alert-warning">Длина пароля должна быть не менее 4-х
+                <div id="passError" class="col-xs-4 alert alert-warning" hidden>Длина пароля должна быть не менее 4-х
                     символов!
                 </div>
             </div>
