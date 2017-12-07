@@ -15,7 +15,7 @@ class Router
         }
     }
 
-    public function custom_warning_handler($errno, $errstr) {
+    public function custom_warning_handler() {
         header('location: /err404.html');
     }
 
