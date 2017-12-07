@@ -7,9 +7,8 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/">Main page</a></li>
-                        <li class=""><a href="#">Account</a></li>
-                        <li class=""><a href="#">About</a></li>
+                        <li class=""><a href="/">Главная страница</a></li>
+                        <li class=""><a href="/admin">Вход в кабинет</a></li>
                     </ul>
                 </div>
             </div>

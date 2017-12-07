@@ -15,6 +15,10 @@ class Router
         }
     }
 
+    public function custom_warning_handler($errno, $errstr) {
+        header('location: /err404.html');
+    }
+
     public function run()
     {
         $uri = $this->getURI();
@@ -37,6 +41,7 @@ class Router
                 }
                 $parameters = $segments;
                 $controllerObject = new $controllerName;
+                set_error_handler("self::custom_warning_handler", E_WARNING);
                 // Вызыв функции экшена с параметрами
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
                 if ($result != null) {

@@ -28,7 +28,6 @@ class AdminController
             } else {
                 $errors[] = "Некорректный email!";
             }
-
         }
 
         require_once ROOT . '/views/admin/login.php';
@@ -48,7 +47,9 @@ class AdminController
     public function actionLogout()
     {
         unset($_SESSION['user']);
-        header('location: /');
+        header("location: /");
+
+        return true;
     }
 
     public function actionChange()

@@ -9,7 +9,7 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li class=""><a href="/">Главная страница</a></li>
-                    <li class=""><a href="#">Вход в кабинет</a></li>
+                    <li class=""><a href="/admin">Вход в кабинет</a></li>
                 </ul>
             </div>
         </div>
