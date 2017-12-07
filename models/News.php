@@ -226,7 +226,6 @@ class News
         $result->bindParam(':short_description', $options['short_description'], PDO::PARAM_STR);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
-        $result->execute();
         if($result->execute()){
             return $db->lastInsertId();
         }

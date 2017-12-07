@@ -19,9 +19,9 @@ class AdminCategoryController
         }
         $category = Category::getCategoryById($id);
         if (isset($_POST['submit'])) {
-            $name = $_POST['name'];
-            $sort = $_POST['sort_order'];
-            $status = $_POST['status'];
+            $name = htmlspecialchars($_POST['name']);
+            $sort = htmlspecialchars($_POST['sort_order']);
+            $status = htmlspecialchars($_POST['status']);
             Category::updateCategoryById($id, $name, $sort, $status);
             header('location: /admin/category');
         }
@@ -51,9 +51,9 @@ class AdminCategoryController
             header('location: /');
         }
         if (isset($_POST['submit'])) {
-            $name = $_POST['name'];
-            $sort = $_POST['sort_order'];
-            $status = $_POST['status'];
+            $name = htmlspecialchars($_POST['name']);
+            $sort = htmlspecialchars($_POST['sort_order']);
+            $status = htmlspecialchars($_POST['status']);
             Category::addCategory($name, $sort, $status);
             header('location: /admin/category');
         }

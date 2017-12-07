@@ -23,11 +23,11 @@ class AdminNewsController
         $categories = Category::getCategoryList();
         if (isset($_POST['submit'])) {
             $options = array();
-            $options['title'] = $_POST['title'];
-            $options['short_description'] = $_POST['short_description'];
-            $options['description'] = $_POST['description'];
-            $options['category'] = $_POST['category'];
-            $options['status'] = $_POST['status'];
+            $options['title'] = htmlspecialchars($_POST['title']);
+            $options['short_description'] = htmlspecialchars($_POST['short_description']);
+            $options['description'] = htmlspecialchars($_POST['description']);
+            $options['category'] = htmlspecialchars($_POST['category']);
+            $options['status'] = htmlspecialchars($_POST['status']);
             $id = News::addNews($options);
             if ($id) {
                 if (is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -50,11 +50,11 @@ class AdminNewsController
         $categories = Category::getCategoryList();
         $newsImage = News::getImageForNewsItem($id);
         if (isset($_POST['submit'])) {
-            $options['title'] = $_POST['title'];
-            $options['short_description'] = $_POST['short_description'];
-            $options['description'] = $_POST['description'];
-            $options['category_id'] = $_POST['category'];
-            $options['status'] = $_POST['status'];
+            $options['title'] = htmlspecialchars($_POST['title']);
+            $options['short_description'] = htmlspecialchars($_POST['short_description']);
+            $options['description'] = htmlspecialchars($_POST['description']);
+            $options['category_id'] = htmlspecialchars($_POST['category']);
+            $options['status'] = htmlspecialchars($_POST['status']);
             if (News::updateNewsById($id, $options)) {
                 if (is_uploaded_file($_FILES['image']['tmp_name'])) {
                     move_uploaded_file($_FILES['image']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . "/upload/img/$id.jpg");

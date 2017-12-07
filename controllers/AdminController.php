@@ -59,7 +59,7 @@ class AdminController
             $oldPassword = $_POST['oldPassword'];
             $oldHash = User::getPasswordForChange();
             if (password_verify($oldPassword, $oldHash)) {
-                $newPassword = $_POST['newPassword'];
+                $newPassword = htmlspecialchars($_POST['newPassword']);
                 $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
                 User::updatePassword($newHash);
                 header('location: /admin/cabinet');
