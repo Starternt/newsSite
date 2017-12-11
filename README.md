@@ -16,6 +16,6 @@ The project realize next functions:
 
 ! This project doesn't imply user registration, so there's no this function.
 Entrance in admin panel going through form login. A password hashing by "password_hash" and ect. related functions.
-Testing database located in general folder. You can download it and try to interract with a site.
+Testing database (news.sql) located in general folder. You can download it and try to interract with a site.
 
 /admin - an entrance into admin panel.
